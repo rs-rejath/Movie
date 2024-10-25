@@ -1,0 +1,114 @@
+﻿@model DataAccessLayer.ApplicationContext.UserAccount
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-center" style="color: #4CAF50;">Edit Profile</h2>
+
+    <form asp-action="EditProfile" method="post">
+        <input type="hidden" asp-for="User_Id" />
+
+        <div class="card shadow-sm" style="border-radius: 10px; background-color: #ffffff;">
+            <div class="card-body">
+
+                <div class="form-group mb-3">
+                    <label class="control-label">Name</label> 
+                    <input asp-for="User_Name" class="form-control" placeholder="Enter your name" />
+                    <span asp-validation-for="User_Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" placeholder="Enter your email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Phone" class="control-label"></label>
+                    <input asp-for="Phone" class="form-control" placeholder="Enter your phone number" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Street" class="control-label"></label>
+                    <input asp-for="Street" class="form-control" placeholder="Enter your street address" />
+                    <span asp-validation-for="Street" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="City" class="control-label"></label>
+                    <input asp-for="City" class="form-control" placeholder="Enter your city" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="PostCode" class="control-label"></label>
+                    <input asp-for="PostCode" class="form-control" placeholder="Enter your postal code" />
+                    <span asp-validation-for="PostCode" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" class="form-control" placeholder="Enter new password (leave blank to keep current)" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-light" style="background-color: #4CAF50; color: white; border-radius: 5px; width: 100%;">
+                        Update Profile
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>
+
+<style>
+    .container {
+        max-width: 600px; 
+        margin-top: 50px;
+    }
+
+    .card {
+        border: none; 
+        border-radius: 10px;
+    }
+
+    .form-control {
+        border-radius: 5px; 
+    }
+
+    .btn {
+        border-radius: 5px;
+    }
+
+    .card-body {
+        padding: 30px; 
+    }
+
+    h2 {
+        font-family: 'Arial', sans-serif;
+        font-weight: bold;
+        color: #4CAF50;
+    }
+
+    label {
+        font-weight: bold; 
+    }
+
+    .text-danger {
+        font-size: 0.875rem; 
+
+    /* for hover effects  */
+    .btn-light {
+        transition: background-color 0.3s; /* Smooth background color transition */
+    }
+
+        .btn-light:hover {
+            background-color: #45a049; /* Darker green on hover */
+            color: white; /* Change text color to white */
+        }
+
+    .form-group {
+        margin-bottom: 1.5rem; /* Space between form groups */
+    }
+</style>

@@ -1,0 +1,49 @@
+﻿@model BuissinessLogicLayer.UserPurchaseModel
+
+<div class="container mt-5">
+    <h2 class="text-center text-success mb-4">Enter Card Details</h2>
+
+    <form asp-action="SubmitPurchase" method="post">
+        <input type="hidden" asp-for="Movie_Id" />
+        <input type="hidden" asp-for="User_Id" />
+        <input type="hidden" asp-for="Movie_Name" />
+        <input type="hidden" asp-for="Language" />
+        <input type="hidden" asp-for="Genre" />
+        <input type="hidden" asp-for="Director" />
+        <input type="hidden" asp-for="Cast" />
+        <input type="hidden" asp-for="Descriptiom" />
+        <input type="hidden" asp-for="Image" />
+        <input type="hidden" asp-for="Price" />
+
+        <!-- Card Payment form -->
+        <div class="form-group">
+            <label asp-for="CardNumber">Card Number</label>
+            <input asp-for="CardNumber" class="form-control" />
+            <span asp-validation-for="CardNumber" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Expiry">Expiry</label>
+            <input asp-for="Expiry" class="form-control" placeholder="MM/YY" />
+            <span asp-validation-for="Expiry" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="CVV">CVV</label>
+            <input asp-for="CVV" class="form-control" type="password" />
+            <span asp-validation-for="CVV" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="CardHolderName">Card Holder Name</label>
+            <input asp-for="CardHolderName" class="form-control" />
+            <span asp-validation-for="CardHolderName" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-success btn-block">Submit</button>
+    </form>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

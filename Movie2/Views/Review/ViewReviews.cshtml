@@ -1,0 +1,30 @@
+﻿@model IEnumerable<BuissinessLogicLayer.ReviewModel>
+
+<div class="container mt-5">
+    <h2 class="text-center">Reviews for @Model.FirstOrDefault()?.Movie_Name</h2>
+
+    @if (ViewBag.Message != null)
+    {
+        <p class="text-center">@ViewBag.Message</p>
+    }
+    else
+    {
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Reviews </th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var review in Model)
+                {
+                    <tr>
+                        <td>@review.Review_Description</td>
+                        
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

@@ -1,0 +1,12 @@
+C:\Users\rsrej\source\repos\Movie2\BuissinessLogicLayer\bin\Debug\net8.0\BuissinessLogicLayer.deps.json
+C:\Users\rsrej\source\repos\Movie2\BuissinessLogicLayer\bin\Debug\net8.0\BuissinessLogicLayer.dll
+C:\Users\rsrej\source\repos\Movie2\BuissinessLogicLayer\bin\Debug\net8.0\BuissinessLogicLayer.pdb
+C:\Users\rsrej\source\repos\Movie2\BuissinessLogicLayer\obj\Debug\net8.0\BuissinessLogicLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rsrej\source\repos\Movie2\BuissinessLogicLayer\obj\Debug\net8.0\BuissinessLogicLayer.AssemblyInfoInputs.cache
+C:\Users\rsrej\source\repos\Movie2\BuissinessLogicLayer\obj\Debug\net8.0\BuissinessLogicLayer.AssemblyInfo.cs
+C:\Users\rsrej\source\repos\Movie2\BuissinessLogicLayer\obj\Debug\net8.0\BuissinessLogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\rsrej\source\repos\Movie2\BuissinessLogicLayer\obj\Debug\net8.0\BuissinessLogicLayer.dll
+C:\Users\rsrej\source\repos\Movie2\BuissinessLogicLayer\obj\Debug\net8.0\refint\BuissinessLogicLayer.dll
+C:\Users\rsrej\source\repos\Movie2\BuissinessLogicLayer\obj\Debug\net8.0\BuissinessLogicLayer.pdb
+C:\Users\rsrej\source\repos\Movie2\BuissinessLogicLayer\obj\Debug\net8.0\ref\BuissinessLogicLayer.dll
+C:\Users\rsrej\source\repos\Movie2\BuissinessLogicLayer\obj\Debug\net8.0\BuissinessLogicLayer.csproj.AssemblyReference.cache

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<BuissinessLogicLayer.UserPurchaseModel>
+
+<div class="container mt-5">
+    <h2 class="text-center" style="color: #FF9800;">Your Past Orders</h2>
+
+    @if (!Model.Any())
+    {
+        <p class="text-center">You haven't made any purchases yet.</p>
+    }
+    else
+    {
+        <table class="table table-bordered table-striped mt-4">
+            <thead>
+                <tr>
+                    <th>Movie Name</th>
+                    <th>Language</th>
+                    <th>Genre</th>
+                    <th>Director</th>
+                    <th>Cast</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in Model)
+                {
+                    <tr>
+                        <td>@order.Movie_Name</td>
+                        <td>@order.Language</td>
+                        <td>@order.Genre</td>
+                        <td>@order.Director</td>
+                        <td>@order.Cast</td>
+                        <td>@order.Descriptiom</td>
+                        <td>@order.Price</td>
+                        <td>
+                            <img src="@Url.Content("~/" + order.Image)" alt="@order.Movie_Name" style="width: 100px; height: 150px; object-fit: cover;" />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

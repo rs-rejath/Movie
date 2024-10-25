@@ -1,0 +1,143 @@
+﻿@model BuissinessLogicLayer.RegistrationModel
+
+<div class="registration-container">
+    <div class="registration-box">
+        <h2>Registration Form</h2>
+        <form asp-action="Register" method="post">
+            
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input asp-for="User_Name" placeholder="Name" class="form-control" />
+                <span asp-validation-for="User_Name" class="text-danger"></span>
+            </div>
+
+            
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input asp-for="Email" placeholder="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+          
+            <div class="input-group">
+                <i class="fas fa-phone"></i>
+                <input asp-for="Phone" placeholder="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+
+            
+            <div class="input-group">
+                <i class="fas fa-map-marker-alt"></i>
+                <input asp-for="Street" placeholder="Street" class="form-control" />
+                <span asp-validation-for="Street" class="text-danger"></span>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-city"></i>
+                <input asp-for="City" placeholder="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+
+            
+            <div class="input-group">
+                <i class="fas fa-mail-bulk"></i>
+                <input asp-for="PostCode" placeholder="Postcode" class="form-control" />
+                <span asp-validation-for="PostCode" class="text-danger"></span>
+            </div>
+
+            
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input asp-for="Password" type="password" placeholder="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input asp-for="ConfirmPassword" type="password" placeholder="Confirm Password" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+
+            
+            <button type="submit" class="btn btn-custom">Register</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
+
+<style>
+    .registration-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f8f9fa; 
+    }
+
+    .registration-box {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+        width: 350px;
+        text-align: center;
+    }
+
+        .registration-box h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #4CAF50; 
+        }
+
+    .input-group {
+        position: relative;
+        margin-bottom: 15px;
+    }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            padding-left: 40px; 
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+
+            .input-group input:focus {
+                border-color: #4CAF50;
+                outline: none; 
+            }
+
+        .input-group i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #4CAF50; 
+        }
+
+    .btn-custom {
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .btn-custom:hover {
+            background-color: #45a049; 
+        }
+
+    .text-danger {
+        font-size: 12px;
+        color: red;
+    }
+</style>

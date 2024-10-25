@@ -1,0 +1,155 @@
+﻿@model X.PagedList.IPagedList<BuissinessLogicLayer.MovieDetailModel>
+@using X.PagedList.Mvc.Core;  
+
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success text-center" role="alert">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-center text-success">Movie List</h2>  
+
+    <div class="row">
+        @foreach (var movie in Model)
+        {
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                <div class="card h-100 shadow-sm border-light"> <!-- Added light border -->
+                    
+                    <img src="@Url.Content("~/" + movie.Image)" alt="Movie Poster" class="card-img-top" style="height: 350px; object-fit: cover; width: 100%;">
+
+                    <div class="card-body">
+                        <h5 class="card-title text-center text-success">@movie.Movie_Name</h5> <!-- Changed title color to light green -->
+                        <p class="card-text"><strong>Language:</strong> @movie.Language</p>
+                        <p class="card-text"><strong>Genre:</strong> @movie.Genre</p>
+                        <p class="card-text"><strong>Director:</strong> @movie.Director</p>
+                        <p class="card-text"><strong>Cast:</strong> @movie.Cast</p>
+                        <p class="card-text"><strong>Description:</strong> @movie.Descriptiom</p>
+                        <p class="card-text"><strong>Price:</strong> @movie.Price</p>
+                        <form asp-controller="Cart" asp-action="AddToCart" method="post">
+                            <input type="hidden" name="movieId" value="@movie.Movie_Id" />
+                            <button type="submit" class="btn btn-success btn-block mb-2">Add to Cart</button>
+                        </form>
+                        <a asp-controller="Review" asp-action="AddReview" asp-route-movieId="@movie.Movie_Id" class="btn btn-primary btn-block me-1">Add Review</a>
+                        <a asp-controller="Review" asp-action="ViewReviews" asp-route-movieId="@movie.Movie_Id" class="btn btn-info btn-block  me-1">View Reviews</a>
+                        <a asp-controller="Purchase" asp-action="PurchaseForm" asp-route-movieId="@movie.Movie_Id" class="btn btn-warning btn-block  mt-1">Buy</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+<div class="d-flex justify-content-center mt-4">
+    @Html.PagedListPager(Model, page => Url.Action("MovieList", new { page }), new PagedListRenderOptions
+    {
+        DisplayLinkToFirstPage = PagedListDisplayMode.Always,
+        DisplayLinkToLastPage = PagedListDisplayMode.Always,
+        DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+        DisplayLinkToNextPage = PagedListDisplayMode.Always,
+        LinkToPreviousPageFormat = "Previous",
+        LinkToNextPageFormat = "Next",
+        LinkToFirstPageFormat = "First",
+        LinkToLastPageFormat = "Last"
+        
+    })
+</div>
+
+<style>
+
+      /* Pagination  */
+    .pagination-container {
+        margin-top: 20px;
+    }
+
+    /* Pagination Links */
+    .pagination {
+        display: inline-flex;
+        list-style: none;
+        padding: 0;
+        border-radius: 5px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+    }
+
+    .pagination li {
+        margin: 0;
+        padding: 0;
+    }
+
+    .pagination li a,
+    .pagination li span {
+        color: #4CAF50; /* Light green color */
+        border: 1px solid #4CAF50;
+        padding: 8px 12px;
+        text-decoration: none;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .pagination li a:hover,
+    .pagination li.active span {
+        background-color: #4CAF50;
+        color: #fff;
+    }
+
+    .pagination li:first-child a,
+    .pagination li:first-child span {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+
+    .pagination li:last-child a,
+    .pagination li:last-child span {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    /* Pagination Active Link */
+    .pagination li.active span {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .card {
+        border: 1px solid #e0e0e0; 
+        transition: transform 0.2s ease, box-shadow 0.2s ease; 
+        border-radius: 10px; 
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15); /* Shadow effect on hover */
+    }
+
+    .card-body h5 {
+        font-weight: 600;
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .card-body p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        color: #555; 
+    }
+
+    
+    .card-img-top {
+        border-bottom: 1px solid #ddd; 
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+
+    
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+  
+</style>

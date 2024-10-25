@@ -1,0 +1,29 @@
+﻿@model BuissinessLogicLayer.SubscriptionModel
+
+<div class="container mt-5">
+    <h2 class="text-center text-success mb-4">Subscription Payment</h2>
+
+    <form asp-action="ProcessSubscription" method="post">
+        <div class="form-group">
+            <label for="CardNumber">Card Number</label>
+            <input type="text" id="CardNumber" name="CardNumber" class="form-control" required />
+        </div>
+
+        <div class="form-group">
+            <label for="ExpiryDate">Expiry Date</label>
+            <input type="text" id="ExpiryDate" name="ExpiryDate" class="form-control" required />
+        </div>
+
+        <div class="form-group">
+            <label for="CVV">CVV</label>
+            <input type="text" id="CVV" name="CVV" class="form-control" required />
+        </div>
+
+        <div class="form-group">
+            <label for="CardHolderName">Card Holder Name</label>
+            <input type="text" id="CardHolderName" name="CardHolderName" class="form-control" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-4">Submit Payment</button>
+    </form>
+</div>

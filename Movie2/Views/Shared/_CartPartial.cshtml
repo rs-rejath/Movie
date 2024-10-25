@@ -1,0 +1,79 @@
+﻿@inject IHttpContextAccessor contx;
+
+<style>
+    .custom-greeting {
+        margin-left: -10px;
+        margin-right: 20px; 
+        font-size: 1rem; 
+        color: #333; 
+    }
+
+    .navbar {
+        background-color: #ffffff;
+        border-bottom: 1px solid #eaeaea;
+    }
+
+    .nav-link,
+    .btn-outline-primary {
+        color: #4CAF50; 
+        transition: background-color 0.3s; 
+    }
+
+        .nav-link:hover,
+        .btn-outline-primary:hover {
+            background-color: #4CAF50; 
+            color: white; 
+        }
+
+    .navbar-text {
+        color: #333; 
+    }
+
+    .btn-outline-danger {
+        color: #e74c3c; 
+        border-color: #e74c3c; 
+    }
+
+        .btn-outline-danger:hover {
+            background-color: #e74c3c; 
+            color: white; 
+        }
+</style>
+
+@if (contx.HttpContext.Session.GetString("User_Name") != null)
+{
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                @* <li class="nav-item">
+                    <span class="navbar-text custom-greeting">
+                        Hello, <strong>@contx.HttpContext.Session.GetString("User_Name")</strong>
+                    </span>
+                </li> *@
+            
+                <li class="nav-item profile-button">
+                    <a asp-controller="UserAccount" asp-action="ProfileDetails" class="btn btn-outline-primary btn-sm">
+                        Profile
+                    </a>
+                </li>
+                <li class="nav-item ml-4">
+                    <form asp-controller="UserAccount" asp-action="Logout" method="post" id="logoutForm" class="form-inline">
+                        <button type="submit" class="btn btn-outline-danger btn-sm">
+                            Log off
+                        </button>
+                    </form>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+}
+
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li><a class="nav-link text-dark" asp-controller="UserAccount" asp-action="Register">Register</a></li>
+        <li><a class="nav-link text-dark" asp-controller="UserAccount" asp-action="LogIn">Login</a></li>
+
+    </ul>
+}
